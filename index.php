@@ -35,6 +35,11 @@ else if ($menu=='pagos'){
 }
 
 else if ($menu=='historial'){
+    // Cargar modelo y controlador del historial para habilitar CRUD
+    require_once 'config/database.php';
+    require_once 'models/Historial.php';
+    require_once 'controllers/Historial.php';
+
     include 'views/Historialview.php';
 }
 
