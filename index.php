@@ -22,9 +22,7 @@ else if ($menu=='miespacio'){
 }
 else if ($menu=='apartarespacio'){
     // Cargar el modelo y controlador
-    require_once 'config/database.php';
-    require_once 'models/ApartarEspacio.php';
-    require_once 'controllers/ApartarEspacio.php';
+
     
     include 'views/ApartarEspacioview.php';
 }
