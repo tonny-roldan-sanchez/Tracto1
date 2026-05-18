@@ -211,9 +211,6 @@ require_once 'views/includes/NavBarView.php';
                 <span class="text-muted text-center text-sm-left d-block d-sm-inline-block">
                   Copyright © 2025 Tracto Pensión San Leonardo. Todos los derechos reservados.
                 </span>
-                <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center">
-                  Hecho con <i class="mdi mdi-heart text-danger"></i>
-                </span>
               </div>
             </div>
           </footer>
@@ -232,4 +229,4 @@ require_once 'views/includes/NavBarView.php';
     <script src="public/assets/js/settings.js"></script>
     <script src="public/assets/js/todolist.js"></script>
   </body>
-</html>x
+</html>

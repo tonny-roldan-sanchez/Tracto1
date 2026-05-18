@@ -239,12 +239,6 @@ require_once 'views/includes/NavBarView.php';
 
                         </span>
 
-                        <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center">
-
-                            Sistema de administración
-                            <i class="mdi mdi-heart text-danger"></i>
-
-                        </span>
 
                     </div>
 
