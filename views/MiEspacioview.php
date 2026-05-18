@@ -5,268 +5,297 @@ require_once 'views/includes/NavBarView.php';
 
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <!-- Required meta tags -->
+
+<head>
+
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Tracto Pensión</title>
-    <!-- plugins:css -->
+
+    <title>Mi Espacio</title>
+
     <link rel="stylesheet" href="public/assets/vendors/mdi/css/materialdesignicons.min.css">
-    <link rel="stylesheet" href="public/assets/vendors/flag-icon-css/css/flag-icon.min.css">
     <link rel="stylesheet" href="public/assets/vendors/css/vendor.bundle.base.css">
-    <!-- endinject -->
-    <!-- Plugin css for this page -->
-    <link rel="stylesheet" href="public/assets/vendors/font-awesome/css/font-awesome.min.css" />
-    <link rel="stylesheet" href="public/assets/vendors/bootstrap-datepicker/bootstrap-datepicker.min.css">
-    <!-- End plugin css for this page -->
-    <!-- inject:css -->
-    <!-- endinject -->
-    <!-- Layout styles -->
     <link rel="stylesheet" href="public/assets/css/demo_1/style.css">
-    <!-- End layout styles -->
-    <link rel="shortcut icon" href="public/assets/images/favicon.png" />
-  </head>
-  <body>
-    <div class="container-scroller">
-      <!-- partial:partials/_navbar.html -->
-      
-      <?=NavBarView(); ?>
 
-      <!-- partial -->
-      <div class="container-fluid page-body-wrapper">
-        <!-- partial:partials/_settings-panel.html -->
-        <div id="settings-trigger"><i class="mdi mdi-settings"></i></div>
-        <div id="theme-settings" class="settings-panel">
-          <i class="settings-close mdi mdi-close"></i>
-          <p class="settings-heading">SIDEBAR SKINS</p>
-          <div class="sidebar-bg-options selected" id="sidebar-default-theme">
-            <div class="img-ss rounded-circle bg-dark border mr-3"></div>Default
-          </div>
-          <div class="sidebar-bg-options" id="sidebar-dark-theme">
-            <div class="img-ss rounded-circle bg-light border mr-3"></div>Light
-          </div>
-          <p class="settings-heading mt-2">HEADER SKINS</p>
-          <div class="color-tiles mx-0 px-4">
-            <div class="tiles primary"></div>
-            <div class="tiles success"></div>
-            <div class="tiles warning"></div>
-            <div class="tiles danger"></div>
-            <div class="tiles info"></div>
-            <div class="tiles dark"></div>
-            <div class="tiles default light"></div>
-          </div>
-        </div>
-        <!-- partial -->
-        <!-- partial:partials/_sidebar.html -->
-        
-        <?=SideBarView(); ?>
+</head>
 
-        <!-- partial -->
+<body>
+
+<div class="container-scroller">
+
+    <?=NavBarView();?>
+
+    <div class="container-fluid page-body-wrapper">
+
+        <?=SideBarView();?>
+
         <div class="main-panel">
-          <div class="content-wrapper">
-            
-          <!-- content-wrapper ends -->
 
-          <img src="public/assets/images/samples/1280x768/12.jpg" alt="sample" class="rounded mw-100" width="400" />
+            <div class="content-wrapper">
 
-          <div class="card">
-              <div class="card-body">
-                <h4 class="card-title">Data table</h4>
-                <div class="row">
-                  <div class="col-12">
-                    <table id="order-listing" class="table">
-                      <thead>
-                        <tr>
-                          <th>Order #</th>
-                          <th>Purchased On</th>
-                          <th>Customer</th>
-                          <th>Ship to</th>
-                          <th>Base Price</th>
-                          <th>Purchased Price</th>
-                          <th>Status</th>
-                          <th>Actions</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        <tr>
-                          <td>1</td>
-                          <td>2012/08/03</td>
-                          <td>Edinburgh</td>
-                          <td>New York</td>
-                          <td>$1500</td>
-                          <td>$3200</td>
-                          <td>
-                            <label class="badge badge-info">On hold</label>
-                          </td>
-                          <td>
-                            <button class="btn btn-outline-primary">View</button>
-                          </td>
-                        </tr>
-                        <tr>
-                          <td>2</td>
-                          <td>2015/04/01</td>
-                          <td>Doe</td>
-                          <td>Brazil</td>
-                          <td>$4500</td>
-                          <td>$7500</td>
-                          <td>
-                            <label class="badge badge-danger">Pending</label>
-                          </td>
-                          <td>
-                            <button class="btn btn-outline-primary">View</button>
-                          </td>
-                        </tr>
-                        <tr>
-                          <td>3</td>
-                          <td>2010/11/21</td>
-                          <td>Sam</td>
-                          <td>Tokyo</td>
-                          <td>$2100</td>
-                          <td>$6300</td>
-                          <td>
-                            <label class="badge badge-success">Closed</label>
-                          </td>
-                          <td>
-                            <button class="btn btn-outline-primary">View</button>
-                          </td>
-                        </tr>
-                        <tr>
-                          <td>4</td>
-                          <td>2016/01/12</td>
-                          <td>Sam</td>
-                          <td>Tokyo</td>
-                          <td>$2100</td>
-                          <td>$6300</td>
-                          <td>
-                            <label class="badge badge-success">Closed</label>
-                          </td>
-                          <td>
-                            <button class="btn btn-outline-primary">View</button>
-                          </td>
-                        </tr>
-                        <tr>
-                          <td>5</td>
-                          <td>2017/12/28</td>
-                          <td>Sam</td>
-                          <td>Tokyo</td>
-                          <td>$2100</td>
-                          <td>$6300</td>
-                          <td>
-                            <label class="badge badge-success">Closed</label>
-                          </td>
-                          <td>
-                            <button class="btn btn-outline-primary">View</button>
-                          </td>
-                        </tr>
-                        <tr>
-                          <td>6</td>
-                          <td>2000/10/30</td>
-                          <td>Sam</td>
-                          <td>Tokyo</td>
-                          <td>$2100</td>
-                          <td>$6300</td>
-                          <td>
-                            <label class="badge badge-info">On-hold</label>
-                          </td>
-                          <td>
-                            <button class="btn btn-outline-primary">View</button>
-                          </td>
-                        </tr>
-                        <tr>
-                          <td>7</td>
-                          <td>2011/03/11</td>
-                          <td>Cris</td>
-                          <td>Tokyo</td>
-                          <td>$2100</td>
-                          <td>$6300</td>
-                          <td>
-                            <label class="badge badge-success">Closed</label>
-                          </td>
-                          <td>
-                            <button class="btn btn-outline-primary">View</button>
-                          </td>
-                        </tr>
-                        <tr>
-                          <td>8</td>
-                          <td>2015/06/25</td>
-                          <td>Tim</td>
-                          <td>Italy</td>
-                          <td>$6300</td>
-                          <td>$2100</td>
-                          <td>
-                            <label class="badge badge-info">On-hold</label>
-                          </td>
-                          <td>
-                            <button class="btn btn-outline-primary">View</button>
-                          </td>
-                        </tr>
-                        <tr>
-                          <td>9</td>
-                          <td>2016/11/12</td>
-                          <td>John</td>
-                          <td>Tokyo</td>
-                          <td>$2100</td>
-                          <td>$6300</td>
-                          <td>
-                            <label class="badge badge-success">Closed</label>
-                          </td>
-                          <td>
-                            <button class="btn btn-outline-primary">View</button>
-                          </td>
-                        </tr>
-                        <tr>
-                          <td>10</td>
-                          <td>2003/12/26</td>
-                          <td>Tom</td>
-                          <td>Germany</td>
-                          <td>$1100</td>
-                          <td>$2300</td>
-                          <td>
-                            <label class="badge badge-danger">Pending</label>
-                          </td>
-                          <td>
-                            <button class="btn btn-outline-primary">View</button>
-                          </td>
-                        </tr>
-                      </tbody>
-                    </table>
-                  </div>
+                <!-- TITULO -->
+                <div class="page-header">
+
+                    <h3 class="page-title">
+
+                        <i class="mdi mdi-parking text-dark mr-2"></i>
+                        Mi Espacio
+
+                    </h3>
+
                 </div>
-              </div>
+
+                <!-- CARD -->
+                <div class="card shadow-sm border-0 rounded-4">
+
+                    <div class="card-body">
+
+                        <h2 class="text-center font-weight-bold mb-5">
+                            Mi Espacio
+                        </h2>
+
+                        <!-- MAPA -->
+                        <div class="d-flex flex-wrap justify-content-center mb-5">
+
+                            <?php for($i = 1; $i <= 23; $i++): ?>
+
+                                <button
+                                    class="btn m-1 espacio-btn <?=($i == 12) ? 'btn-warning' : 'btn-secondary';?>"
+                                    onclick="seleccionarEspacio(<?=$i;?>)"
+                                    id="espacio<?=$i;?>"
+                                    disabled>
+
+                                    <?=$i;?>
+
+                                </button>
+
+                            <?php endfor; ?>
+
+                        </div>
+
+                        <!-- TABLA -->
+                        <div class="table-responsive">
+
+                            <table class="table table-bordered text-center">
+
+                                <thead class="bg-light">
+
+                                    <tr>
+
+                                        <th colspan="2"
+                                            class="text-primary font-weight-bold">
+
+                                            Detalles Del Espacio
+
+                                        </th>
+
+                                    </tr>
+
+                                </thead>
+
+                                <tbody>
+
+                                    <tr>
+
+                                        <td class="font-weight-bold">
+                                            Número de Espacio
+                                        </td>
+
+                                        <td>
+
+                                            <input type="text"
+                                                   id="numeroEspacio"
+                                                   class="form-control text-center"
+                                                   value="12"
+                                                   disabled>
+
+                                        </td>
+
+                                    </tr>
+
+                                    <tr>
+
+                                        <td class="font-weight-bold">
+                                            Terreno Asignado
+                                        </td>
+
+                                        <td>
+
+                                            <input type="text"
+                                                   id="terreno"
+                                                   class="form-control text-center"
+                                                   value="Terreno 2"
+                                                   disabled>
+
+                                        </td>
+
+                                    </tr>
+
+                                    <tr>
+
+                                        <td class="font-weight-bold">
+                                            Estado
+                                        </td>
+
+                                        <td>
+
+                                            <label id="estadoBadge"
+                                                   class="badge badge-success p-2">
+
+                                                En Uso
+
+                                            </label>
+
+                                        </td>
+
+                                    </tr>
+
+                                </tbody>
+
+                            </table>
+
+                        </div>
+
+                        <!-- BOTONES -->
+                        <div class="text-center mt-4">
+
+                            <button class="btn btn-primary rounded-pill mr-2"
+                                    onclick="editarEspacio()">
+
+                                <i class="mdi mdi-pencil"></i>
+                                Editar Espacio
+
+                            </button>
+
+                            <button class="btn btn-danger rounded-pill"
+                                    onclick="liberarEspacio()">
+
+                                <i class="mdi mdi-close-circle"></i>
+                                Liberar Espacio
+
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
             </div>
 
-          <!-- partial:partials/_footer.html -->
-          <footer class="footer">
-            <div class="footer-inner-wraper">
-              <div class="d-sm-flex justify-content-center justify-content-sm-between">
-                <span class="text-muted text-center text-sm-left d-block d-sm-inline-block">Copyright © 2018 <a href="https://www.bootstrapdash.com/" target="_blank">Bootstrap Dash</a>. All rights reserved.</span>
-                <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center">Hand-crafted & made with <i class="mdi mdi-heart text-danger"></i></span>
-              </div>
-            </div>
-          </footer>
-          <!-- partial -->
+            <!-- SCRIPT -->
+            <script>
+
+            let modoEdicion = false;
+            let espacioActual = 12;
+
+            function editarEspacio() {
+
+                modoEdicion = true;
+
+                let botones = document.querySelectorAll('.espacio-btn');
+
+                botones.forEach(function(btn) {
+
+                    btn.disabled = false;
+
+                });
+
+            }
+
+            function seleccionarEspacio(numero) {
+
+                if(!modoEdicion) return;
+
+                // quitar color anterior
+                document.getElementById("espacio" + espacioActual)
+                    .classList.remove("btn-warning");
+
+                document.getElementById("espacio" + espacioActual)
+                    .classList.add("btn-secondary");
+
+                // nuevo espacio
+                espacioActual = numero;
+
+                document.getElementById("espacio" + numero)
+                    .classList.remove("btn-secondary");
+
+                document.getElementById("espacio" + numero)
+                    .classList.add("btn-warning");
+
+                // actualizar tabla
+                document.getElementById("numeroEspacio").value = numero;
+
+                // cambiar terreno automático
+                let terreno = "Terreno 1";
+
+                if(numero >= 8 && numero <= 15) {
+
+                    terreno = "Terreno 2";
+
+                }
+
+                if(numero >= 16) {
+
+                    terreno = "Terreno 3";
+
+                }
+
+                document.getElementById("terreno").value = terreno;
+
+            }
+
+            function liberarEspacio() {
+
+                document.getElementById("espacio" + espacioActual)
+                    .classList.remove("btn-warning");
+
+                document.getElementById("espacio" + espacioActual)
+                    .classList.add("btn-secondary");
+
+                document.getElementById("numeroEspacio").value = "";
+
+                document.getElementById("terreno").value = "";
+
+                let estado = document.getElementById("estadoBadge");
+
+                estado.innerHTML = "Fuera de Uso";
+
+                estado.classList.remove("badge-success");
+
+                estado.classList.add("badge-danger");
+
+            }
+
+            </script>
+
+            <!-- FOOTER -->
+            <footer class="footer">
+
+                <div class="footer-inner-wraper">
+
+                    <div class="d-sm-flex justify-content-center justify-content-sm-between">
+
+                        <span class="text-muted text-center text-sm-left d-block d-sm-inline-block">
+
+                            Copyright © 2026
+                            Tracto Pensión San Leonardo
+
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </footer>
+
         </div>
-        <!-- main-panel ends -->
-      </div>
-      <!-- page-body-wrapper ends -->
+
     </div>
-    <!-- container-scroller -->
-    <!-- plugins:js -->
-    <script src="public/assets/vendors/js/vendor.bundle.base.js"></script>
-    <!-- endinject -->
-    <!-- Plugin js for this page -->
-    <script src="public/assets/vendors/chart.js/Chart.min.js"></script>
-    <script src="public/assets/vendors/jquery-circle-progress/js/circle-progress.min.js"></script>
-    <!-- End plugin js for this page -->
-    <!-- inject:js -->
-    <script src="public/assets/js/off-canvas.js"></script>
-    <script src="public/assets/js/hoverable-collapse.js"></script>
-    <script src="public/assets/js/misc.js"></script>
-    <script src="public/assets/js/settings.js"></script>
-    <script src="public/assets/js/todolist.js"></script>
-    <!-- endinject -->
-    <!-- Custom js for this page -->
-    <script src="public/assets/js/dashboard.js"></script>
-    <!-- End custom js for this page -->
-  </body>
+
+</div>
+
+<script src="public/assets/vendors/js/vendor.bundle.base.js"></script>
+
+</body>
 </html>
