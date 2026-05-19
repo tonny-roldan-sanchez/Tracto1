@@ -27,9 +27,9 @@
             <div class="col-lg-6 d-flex align-items-center justify-content-center">
               <div class="auth-form-transparent text-left p-3">
                 <div class="brand-logo">
-                  <img src="public/assets/images/logo-dark.svg" alt="logo">
+                  <img src="public/assets/images/logotractopension.png" alt="logo">
                 </div>
-                <h4>Bienvenido a Tracto Pension San Leonardo!</h4>
+                <h4>Bienvenido a Tracto Pensión San Leonardo!</h4>
                 <h6 class="font-weight-light">Acceso al sistema!</h6>
                 <form class="pt-3">
                   <div class="form-group">

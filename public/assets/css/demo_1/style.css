@@ -18395,7 +18395,7 @@ dl {
   background-size: cover; }
 
 .auth .register-half-bg {
-  background: url("../../images/auth/register-bg.jpg");
+  background: url("../../images/auth/crearcuenta-bg.jpg");
   background-size: cover; }
 
 .auth.lock-full-bg {
@@ -20049,3 +20049,16 @@ dl {
   border: 1px dashed rgba(151, 151, 151, 0.3); }
 
 /*# sourceMappingURL=style.css.map */
+/*Se agrego cambios de letras en login y crearcuenta*/
+h4, h6, label {
+  color: #1F2937; /* gris oscuro elegante */
+}
+.form-control {
+  border: 1px solid #D1D5DB;   /* gris claro en lugar de negro fuerte */
+  background-color: #F9FAFB;   /* fondo gris muy suave */
+  color: #111827;              /* texto oscuro para buena legibilidad */
+}
+
+.form-control::placeholder {
+  color: #6B7280;              /* placeholder gris medio */
+}
