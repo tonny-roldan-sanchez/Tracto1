@@ -31,7 +31,7 @@ require_once 'views/includes/NavBarView.php';
 
             <!-- Encabezado -->
             <div class="d-xl-flex justify-content-between align-items-start">
-              <h2 class="text-dark font-weight-bold mb-2">Dashboard (Cliente)</h2>
+              <h2 class="text-dark font-weight-bold mb-2">Dashboard (Administrador)</h2>
               <div class="d-sm-flex justify-content-xl-between align-items-center mb-2">
                 <div class="btn-group bg-white p-3" role="group">
                 </div>
@@ -214,5 +214,35 @@ require_once 'views/includes/NavBarView.php';
     <script src="public/assets/js/misc.js"></script>
     <script src="public/assets/js/settings.js"></script>
     <script src="public/assets/js/todolist.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+  // Obtenemos el contexto del canvas
+  const ctx = document.getElementById('ocupacionChart').getContext('2d');
+
+  // Datos de ejemplo: ocupados vs disponibles
+  const ocupados = 70;   // aquí puedes poner el número real
+  const disponibles = 20; // aquí también puedes poner el número real
+
+  // Creamos la gráfica
+  const ocupacionChart = new Chart(ctx, {
+    type: 'doughnut',
+    data: {
+      labels: ['Ocupado', 'Disponible'],
+      datasets: [{
+        data: [ocupados, disponibles],
+        backgroundColor: ['#7ed321', '#ffffff'],
+        borderColor: ['#ccc', '#ccc'],
+        borderWidth: 1
+      }]
+    },
+    options: {
+      responsive: false,
+      plugins: {
+        legend: { display: false } // ocultamos la leyenda porque ya la tienes manual
+      }
+    }
+  });
+</script>
+
   </body>
 </html>
