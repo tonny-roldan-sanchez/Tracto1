@@ -65,10 +65,7 @@
                     <a class="btn btn-block btn-primary btn-lg font-weight-medium auth-form-btn" href="?menu=panel">Ingresar</a>
                   </div>
                   <div class="mb-2 d-flex">
-                    <button type="button" class="btn btn-facebook auth-form-btn flex-grow mr-1">
-                      <i class="mdi mdi-facebook mr-2"></i>Facebook </button>
-                    <button type="button" class="btn btn-google auth-form-btn flex-grow ml-1">
-                      <i class="mdi mdi-google mr-2"></i>Google </button>
+                    
                   </div>
                   <div class="text-center mt-4 font-weight-light"> ¿No tienes cuenta? <a href="?menu=registro" class="text-primary">Crear</a>
                   </div>
