@@ -29,174 +29,93 @@ require_once 'views/includes/NavBarView.php';
         <div class="main-panel">
           <div class="content-wrapper">
 
-            <!-- Encabezado -->
-            <div class="d-xl-flex justify-content-between align-items-start">
-              <h2 class="text-dark font-weight-bold mb-2">Dashboard (Cliente)</h2>
-              <div class="d-sm-flex justify-content-xl-between align-items-center mb-2">
-                <div class="btn-group bg-white p-3" role="group">
-                  <button type="button" class="btn btn-link text-dark py-0 border-right">1 Month</button>
-                  <button type="button" class="btn btn-link text-light py-0">3 Month</button>
-                </div>
-                <div class="dropdown ml-0 ml-md-4 mt-2 mt-lg-0">
-                  <button class="btn bg-white dropdown-toggle p-3 d-flex align-items-center" type="button" id="dropdownMenuButton1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <i class="mdi mdi-calendar mr-1"></i>24 Mar 2019 - 24 Mar 2019
-                  </button>
-                  <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton1">
-                    <h6 class="dropdown-header">Settings</h6>
-                    <a class="dropdown-item" href="#">Action</a>
-                    <a class="dropdown-item" href="#">Another action</a>
-                    <a class="dropdown-item" href="#">Something else here</a>
-                    <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="#">Separated link</a>
+            <div class="row">
+              <div class="col-12">
+                <div class="card border-0 shadow-sm mb-4">
+                  <div class="card-body">
+                    <div class="d-flex justify-content-between align-items-center flex-wrap">
+                      <div>
+                        <h3 class="text-dark font-weight-bold mb-1">Dashboard</h3>
+                        <p class="text-muted mb-0">Resumen general del estado del sistema</p>
+                      </div>
+                      <div class="text-right">
+                        <h4 class="text-primary mb-0">Bienvenido</h4>
+                        <small class="text-muted">Tracto Pensión San Leonardo</small>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
 
-            <!-- Tabs -->
             <div class="row">
-              <div class="col-md-12">
-                <div class="d-sm-flex justify-content-between align-items-center transaparent-tab-border">
-                  <ul class="nav nav-tabs tab-transparent" role="tablist">
-                    <li class="nav-item">
-                      <a class="nav-link" id="home-tab" data-toggle="tab" href="#" role="tab" aria-selected="true">Users</a>
-                    </li>
-                    <li class="nav-item">
-                      <a class="nav-link active" id="business-tab" data-toggle="tab" href="#business-1" role="tab" aria-selected="false">Business</a>
-                    </li>
-                    <li class="nav-item">
-                      <a class="nav-link" id="performance-tab" data-toggle="tab" href="#" role="tab" aria-selected="false">Performance</a>
-                    </li>
-                    <li class="nav-item">
-                      <a class="nav-link" id="conversion-tab" data-toggle="tab" href="#" role="tab" aria-selected="false">Conversion</a>
-                    </li>
-                  </ul>
-                  <div class="d-md-block d-none">
-                    <a href="#" class="text-light p-1"><i class="mdi mdi-view-dashboard"></i></a>
-                    <a href="#" class="text-light p-1"><i class="mdi mdi-dots-vertical"></i></a>
+              <?php
+              $colorMap = [
+                'primary' => ['text' => 'text-primary', 'bg' => 'bg-primary bg-opacity-10'],
+                'success' => ['text' => 'text-success', 'bg' => 'bg-success bg-opacity-10'],
+                'warning' => ['text' => 'text-warning', 'bg' => 'bg-warning bg-opacity-10'],
+                'info' => ['text' => 'text-info', 'bg' => 'bg-info bg-opacity-10'],
+              ];
+              foreach ($panelData['stats'] as $stat):
+                $colors = $colorMap[$stat['color']] ?? $colorMap['primary'];
+              ?>
+              <div class="col-xl-3 col-lg-6 col-md-6 mb-4">
+                <div class="card border-0 shadow-sm h-100">
+                  <div class="card-body">
+                    <div class="d-flex justify-content-between align-items-start">
+                      <div>
+                        <h6 class="text-muted mb-2"><?= htmlspecialchars($stat['title']) ?></h6>
+                        <h2 class="font-weight-bold text-dark mb-0"><?= htmlspecialchars($stat['value']) ?></h2>
+                      </div>
+                      <div class="icon-box rounded-circle <?= htmlspecialchars($colors['bg']) ?> p-3">
+                        <i class="mdi <?= htmlspecialchars($stat['icon']) ?> <?= htmlspecialchars($colors['text']) ?> mdi-24px"></i>
+                      </div>
+                    </div>
                   </div>
                 </div>
-
-                <div class="tab-content tab-transparent-content">
-                  <div class="tab-pane fade show active" id="business-1" role="tabpanel" aria-labelledby="business-tab">
-
-                    <!-- 4 Tarjetas de métricas -->
-                    <div class="row">
-
-                      <div class="col-xl-3 col-lg-6 col-sm-6 grid-margin stretch-card">
-                        <div class="card">
-                          <div class="card-body text-center">
-                            <h5 class="mb-2 text-dark font-weight-normal">Camiones Registrados</h5>
-                            <h2 class="mb-4 text-dark font-weight-bold">70</h2>
-                            <i class="mdi mdi-truck icon-lg text-primary"></i>
-                          </div>
-                        </div>
-                      </div>
-
-                      <div class="col-xl-3 col-lg-6 col-sm-6 grid-margin stretch-card">
-                        <div class="card">
-                          <div class="card-body text-center">
-                            <h5 class="mb-2 text-dark font-weight-normal">Espacios disponibles</h5>
-                            <h2 class="mb-4 text-dark font-weight-bold">20</h2>
-                            <i class="mdi mdi-package-variant icon-lg text-success"></i>
-                          </div>
-                        </div>
-                      </div>
-
-                      <div class="col-xl-3 col-lg-6 col-sm-6 grid-margin stretch-card">
-                        <div class="card">
-                          <div class="card-body text-center">
-                            <h5 class="mb-2 text-dark font-weight-normal">Pagos pendientes</h5>
-                            <h2 class="mb-4 text-dark font-weight-bold">8</h2>
-                            <i class="mdi mdi-cash-multiple icon-lg text-warning"></i>
-                          </div>
-                        </div>
-                      </div>
-
-                      <div class="col-xl-3 col-lg-6 col-sm-6 grid-margin stretch-card">
-                        <div class="card">
-                          <div class="card-body text-center">
-                            <h5 class="mb-2 text-dark font-weight-normal">Pagos al corriente</h5>
-                            <h2 class="mb-4 text-dark font-weight-bold">10</h2>
-                            <i class="mdi mdi-check-circle icon-lg text-success"></i>
-                          </div>
-                        </div>
-                      </div>
-
-                    </div>
-                    <!-- fin tarjetas -->
-<!-- Gráfica Ocupación Actual -->
-<div class="row">
-  <div class="col-12 grid-margin">
-    <div class="card">
-      <div class="card-body">
-        <h4 class="card-title text-center mb-3">Ocupación Actual</h4>
-        <div class="d-flex align-items-center justify-content-center">
-          <canvas id="ocupacionChart" width="200" height="200"></canvas>
-          <div class="ml-4">
-            <div class="d-flex align-items-center mb-2">
-              <div style="width:16px;height:16px;background:#7ed321;border:1px solid #ccc;margin-right:8px;"></div>
-              <span>Ocupado</span>
-            </div>
-            <div class="d-flex align-items-center">
-              <div style="width:16px;height:16px;background:#ffffff;border:1px solid #ccc;margin-right:8px;"></div>
-              <span>Disponible</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-<!-- fin gráfica ocupación -->
-
-<!-- Tabla Actividad Reciente -->
-<div class="row">
-  <div class="col-12 grid-margin">
-    <div class="card">
-      <div class="card-body">
-
-        <h4 class="card-title mb-3">
-          <a href="#" class="text-primary font-weight-bold">Actividad Reciente</a>
-        </h4>
-
-        <div class="table-responsive">
-          <table class="table table-hover">
-            <thead>
-              <tr>
-                <th>Fecha</th>
-                <th>Línea</th>
-                <th>Nombre del operador</th>
-                <th>Pensionado</th>
-              </tr>
-            </thead>
-            <tbody>
-              <?php
-              $actividad = [
-                ['fecha' => '13/03/2026', 'linea' => 'GRL',           'operador' => 'Enrique Guzmán',    'pensionado' => 'Boleto'],
-                ['fecha' => '12/03/2026', 'linea' => 'PETROPIPAS',    'operador' => 'Luis Roldán',       'pensionado' => 'Boleto'],
-                ['fecha' => '11/03/2026', 'linea' => 'COSTA A COSTA', 'operador' => 'Julio Rodríguez',   'pensionado' => 'Boleto'],
-                ['fecha' => '10/03/2026', 'linea' => 'SANTEX',        'operador' => 'Rodrigo Velázquez', 'pensionado' => 'SI'],
-                ['fecha' => '07/03/2026', 'linea' => 'EVERYTIME',     'operador' => 'Manuel Hernández',  'pensionado' => 'SI'],
-              ];
-              foreach ($actividad as $row): ?>
-              <tr>
-                <td><?= $row['fecha'] ?></td>
-                <td><?= $row['linea'] ?></td>
-                <td><?= $row['operador'] ?></td>
-                <td><?= $row['pensionado'] ?></td>
-              </tr>
+              </div>
               <?php endforeach; ?>
-            </tbody>
-          </table>
-        </div>
+            </div>
 
-      </div>
-    </div>
-  </div>
-</div>
-<!-- fin tabla actividad reciente -->
+            <div class="row">
+              <div class="col-lg-7 col-md-12 mb-4">
+                <div class="card border-0 shadow-sm h-100">
+                  <div class="card-body">
+                    <h4 class="card-title mb-3">Ocupación Actual</h4>
+                    <div class="d-flex align-items-center justify-content-center flex-wrap">
+                      <canvas id="ocupacionChart" width="220" height="220"></canvas>
+                      <div class="ml-4 mt-3 mt-md-0">
+                        <div class="d-flex align-items-center mb-2">
+                          <div style="width:16px;height:16px;background:#7ed321;border:1px solid #ccc;margin-right:8px;"></div>
+                          <span>Ocupado</span>
+                        </div>
+                        <div class="d-flex align-items-center">
+                          <div style="width:16px;height:16px;background:#ffffff;border:1px solid #ccc;margin-right:8px;"></div>
+                          <span>Disponible</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
 
+              <div class="col-lg-5 col-md-12 mb-4">
+                <div class="card border-0 shadow-sm h-100">
+                  <div class="card-body">
+                    <h4 class="card-title mb-3">Actividad Reciente</h4>
+                    <div class="list-group list-group-flush">
+                      <?php foreach ($panelData['activity'] as $row): ?>
+                      <div class="list-group-item px-0 py-3">
+                        <div class="d-flex justify-content-between align-items-center">
+                          <div>
+                            <h6 class="mb-1 text-dark"><?= $row['operador'] ?></h6>
+                            <small class="text-muted"><?= $row['linea'] ?> • <?= $row['pensionado'] ?></small>
+                          </div>
+                          <span class="text-muted small"><?= $row['fecha'] ?></span>
+                        </div>
+                      </div>
+                      <?php endforeach; ?>
+                    </div>
                   </div>
                 </div>
               </div>

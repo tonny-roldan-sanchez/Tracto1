@@ -80,210 +80,91 @@ require_once 'views/includes/NavBarView.php';
 
             <div class="content-wrapper">
 
-                <!-- Título -->
-                <div class="page-header">
-                    <h3 class="page-title">
-
-                        <i class="mdi mdi-truck text-dark mr-2"></i>
-                        Mi Camión
-
-                    </h3>
+                <div class="row">
+                    <div class="col-12">
+                        <div class="card border-0 shadow-sm mb-4">
+                            <div class="card-body">
+                                <div class="d-flex justify-content-between align-items-center flex-wrap">
+                                    <div>
+                                        <h3 class="text-dark font-weight-bold mb-1">Mi Camión</h3>
+                                        <p class="text-muted mb-0">Información general del vehículo registrado</p>
+                                    </div>
+                                    <button type="button" class="btn btn-warning rounded-pill" onclick="habilitarEdicion()">
+                                        <i class="mdi mdi-pencil"></i>
+                                        Editar
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
-                <!-- Imagen arriba -->
-                <div class="card shadow-sm border-0 rounded-4 mb-4">
-
-                    <div class="card-body text-center">
-
-                        <img src="public/assets/images/samples/1280x768/12.jpg"
-                             alt="Camión"
-                             class="img-fluid rounded shadow-sm"
-                             width="350">
-
+                <div class="row">
+                    <div class="col-lg-5 col-md-12 mb-4">
+                        <div class="card border-0 shadow-sm h-100">
+                            <div class="card-body text-center">
+                                <img src="public/assets/images/samples/1280x768/12.jpg"
+                                     alt="Camión"
+                                     class="img-fluid rounded shadow-sm"
+                                     style="max-height: 280px; object-fit: cover; width: 100%;">
+                            </div>
+                        </div>
                     </div>
 
+                    <div class="col-lg-7 col-md-12 mb-4">
+                        <div class="card border-0 shadow-sm h-100">
+                            <div class="card-body">
+                                <h4 class="font-weight-bold mb-4">Información del Camión</h4>
+                                <form method="POST">
+                                    <div class="row">
+                                        <div class="col-md-6 form-group">
+                                            <label class="font-weight-bold">Placa</label>
+                                            <input type="text" name="placa" class="form-control editable" value="123-BF-5" disabled>
+                                        </div>
+                                        <div class="col-md-6 form-group">
+                                            <label class="font-weight-bold">Marca</label>
+                                            <input type="text" name="marca" class="form-control editable" value="Freightliner" disabled>
+                                        </div>
+                                        <div class="col-md-6 form-group">
+                                            <label class="font-weight-bold">Modelo</label>
+                                            <input type="text" name="modelo" class="form-control editable" value="Cascadia 2020" disabled>
+                                        </div>
+                                        <div class="col-md-6 form-group">
+                                            <label class="font-weight-bold">Color</label>
+                                            <input type="text" name="color" class="form-control editable" value="Blanco" disabled>
+                                        </div>
+                                        <div class="col-md-6 form-group">
+                                            <label class="font-weight-bold">Fecha de Entrada</label>
+                                            <input type="date" name="fecha" class="form-control editable" value="2026-04-22" disabled>
+                                        </div>
+                                        <div class="col-md-6 form-group">
+                                            <label class="font-weight-bold">Hora de Entrada</label>
+                                            <input type="time" name="hora" class="form-control editable" value="19:55" disabled>
+                                        </div>
+                                        <div class="col-md-12 form-group">
+                                            <label class="font-weight-bold">Estado</label>
+                                            <select name="estado" class="form-control editable" disabled>
+                                                <option value="En pensión" selected>En pensión</option>
+                                                <option value="Fuera de pensión">Fuera de pensión</option>
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                    <div class="mt-4 d-flex flex-wrap">
+                                        <button type="submit" id="btnGuardar" class="btn btn-success rounded-pill mr-2 mb-2" disabled>
+                                            <i class="mdi mdi-content-save"></i>
+                                            Guardar Cambios
+                                        </button>
+                                        <a href="index.php?menu=apartarespacio" class="btn btn-primary rounded-pill mb-2 px-4 py-2 shadow-sm" style="font-weight:600; letter-spacing:0.2px;">
+                                            <i class="mdi mdi-map-marker mr-2"></i>
+                                            Confirmar Reserva
+                                        </a>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-
-<!-- Información abajo -->
-<div class="card shadow-sm border-0 rounded-4">
-
-    <div class="card-body">
-
-        <div class="d-flex justify-content-between align-items-center mb-4">
-
-            <div class="d-flex align-items-center">
-
-                <i class="mdi mdi-information-outline text-primary mr-2"
-                   style="font-size: 28px;"></i>
-
-                <h4 class="mb-0 font-weight-bold">
-                    Información Del Camión
-                </h4>
-
-            </div>
-
-            <!-- BOTÓN EDITAR -->
-            <button type="button"
-                    class="btn btn-warning rounded-pill"
-                    onclick="habilitarEdicion()">
-
-                <i class="mdi mdi-pencil"></i>
-                Editar
-
-            </button>
-
-        </div>
-
-        <form method="POST">
-
-            <div class="table-responsive">
-
-                <table class="table table-borderless">
-
-                    <tbody>
-
-                        <tr>
-                            <td class="font-weight-bold">
-                                Placa:
-                            </td>
-
-                            <td>
-                                <input type="text"
-                                       name="placa"
-                                       class="form-control editable"
-                                       value="123-BF-5"
-                                       disabled>
-                            </td>
-                        </tr>
-
-                        <tr>
-                            <td class="font-weight-bold">
-                                Marca:
-                            </td>
-
-                            <td>
-                                <input type="text"
-                                       name="marca"
-                                       class="form-control editable"
-                                       value="Freightliner"
-                                       disabled>
-                            </td>
-                        </tr>
-
-                        <tr>
-                            <td class="font-weight-bold">
-                                Modelo:
-                            </td>
-
-                            <td>
-                                <input type="text"
-                                       name="modelo"
-                                       class="form-control editable"
-                                       value="Cascadia 2020"
-                                       disabled>
-                            </td>
-                        </tr>
-
-                        <tr>
-                            <td class="font-weight-bold">
-                                Color:
-                            </td>
-
-                            <td>
-                                <input type="text"
-                                       name="color"
-                                       class="form-control editable"
-                                       value="Blanco"
-                                       disabled>
-                            </td>
-                        </tr>
-
-                        <tr>
-                            <td class="font-weight-bold">
-                                Fecha de Entrada:
-                            </td>
-
-                            <td>
-                                <input type="date"
-                                       name="fecha"
-                                       class="form-control editable"
-                                       value="2026-04-22"
-                                       disabled>
-                            </td>
-                        </tr>
-
-                        <tr>
-                            <td class="font-weight-bold">
-                                Hora de Entrada:
-                            </td>
-
-                            <td>
-                                <input type="time"
-                                       name="hora"
-                                       class="form-control editable"
-                                       value="19:55"
-                                       disabled>
-                            </td>
-                        </tr>
-
-                        <tr>
-                            <td class="font-weight-bold">
-                                Estado:
-                            </td>
-
-                            <td>
-
-                                <select name="estado"
-                                        class="form-control editable"
-                                        disabled>
-
-                                    <option value="En pensión" selected>
-                                        En pensión
-                                    </option>
-
-                                    <option value="Fuera de pensión">
-                                        Fuera de pensión
-                                    </option>
-
-                                </select>
-
-                            </td>
-                        </tr>
-
-                    </tbody>
-
-                </table>
-
-            </div>
-
-            <!-- BOTONES -->
-            <div class="mt-4 d-flex gap-2">
-
-                <button type="submit"
-                        id="btnGuardar"
-                        class="btn btn-success rounded-pill mr-2"
-                        disabled>
-
-                    <i class="mdi mdi-content-save"></i>
-                    Guardar Cambios
-
-                </button>
-
-                <a href="index.php?view=apartar_espacio"
-                   class="btn btn-primary rounded-pill">
-
-                    <i class="mdi mdi-map-marker"></i>
-                    Confirmar Reserva
-
-                </a>
-
-            </div>
-
-        </form>
-
-    </div>
-
-</div>
 
 <!-- SCRIPT -->
 <script>

@@ -174,82 +174,38 @@ require_once 'views/includes/NavBarView.php';
                           </tr>
                         </thead>
                         <tbody>
+                          <?php if(!empty($pagos)): ?>
+                            <?php foreach($pagos as $pago): ?>
+                            <tr>
+                              <td><strong><?= $pago['id_pago'] ?></strong></td>
+                              <td><?= $pago['concepto'] ?></td>
+                              <td><span class="font-weight-bold text-dark">$<?= number_format($pago['monto'], 2) ?></span></td>
+                              <td><?= $pago['fecha_pago'] ? date('d/m/Y', strtotime($pago['fecha_pago'])) : '-' ?></td>
+                              <td>
+                                <span class="badge <?= $pago['metodo_pago'] == 'transferencia' ? 'badge-info' : ($pago['metodo_pago'] == 'efectivo' ? 'badge-success' : 'badge-warning') ?>">
+                                  <?= ucfirst($pago['metodo_pago']) ?>
+                                </span>
+                              </td>
+                              <td>
+                                <span class="badge <?= $pago['estado'] == 'pagado' ? 'badge-completed' : ($pago['estado'] == 'pendiente' ? 'badge-warning' : 'badge-danger') ?>">
+                                  <?= ucfirst($pago['estado']) ?>
+                                </span>
+                              </td>
+                              <td>
+                                <?php if($pago['estado'] == 'pendiente'): ?>
+                                <button class="btn btn-sm btn-outline-success" onclick="marcarPagado(<?= $pago['id_pago'] ?>)" title="Marcar como pagado">
+                                  <i class="mdi mdi-check"></i>
+                                </button>
+                                <?php endif; ?>
+                              </td>
+                            </tr>
+                            <?php endforeach; ?>
+                          <?php else: ?>
                           <tr>
-                            <td><strong>#P-001-2026</strong></td>
-                            <td>Renta Espacio - Enero</td>
-                            <td><span class="font-weight-bold text-dark">$2,500.00</span></td>
-                            <td>05/01/2026</td>
-                            <td><span class="badge badge-info">Transferencia</span></td>
-                            <td><span class="badge badge-completed">Completado</span></td>
-                            <td>
-                              <button class="btn btn-sm btn-outline-primary" title="Ver detalles">
-                                <i class="mdi mdi-eye"></i>
-                              </button>
-                              <button class="btn btn-sm btn-outline-secondary" title="Descargar recibo">
-                                <i class="mdi mdi-download"></i>
-                              </button>
-                            </td>
+                            <td colspan="7" class="text-center text-muted">Sin pagos registrados</td>
                           </tr>
-                          <tr>
-                            <td><strong>#P-002-2026</strong></td>
-                            <td>Renta Espacio - Febrero</td>
-                            <td><span class="font-weight-bold text-dark">$2,500.00</span></td>
-                            <td>05/02/2026</td>
-                            <td><span class="badge badge-success">Efectivo</span></td>
-                            <td><span class="badge badge-completed">Completado</span></td>
-                            <td>
-                              <button class="btn btn-sm btn-outline-primary" title="Ver detalles">
-                                <i class="mdi mdi-eye"></i>
-                              </button>
-                              <button class="btn btn-sm btn-outline-secondary" title="Descargar recibo">
-                                <i class="mdi mdi-download"></i>
-                              </button>
-                            </td>
-                          </tr>
-                          <tr>
-                            <td><strong>#P-003-2026</strong></td>
-                            <td>Renta Espacio - Marzo</td>
-                            <td><span class="font-weight-bold text-dark">$2,500.00</span></td>
-                            <td>05/03/2026</td>
-                            <td><span class="badge badge-warning">Tarjeta</span></td>
-                            <td><span class="badge badge-completed">Completado</span></td>
-                            <td>
-                              <button class="btn btn-sm btn-outline-primary" title="Ver detalles">
-                                <i class="mdi mdi-eye"></i>
-                              </button>
-                              <button class="btn btn-sm btn-outline-secondary" title="Descargar recibo">
-                                <i class="mdi mdi-download"></i>
-                              </button>
-                            </td>
-                          </tr>
-                          <tr>
-                            <td><strong>#P-004-2026</strong></td>
-                            <td>Renta Espacio - Abril</td>
-                            <td><span class="font-weight-bold text-dark">$2,500.00</span></td>
-                            <td>05/04/2026</td>
-                            <td><span class="badge badge-info">Transferencia</span></td>
-                            <td><span class="badge badge-completed">Completado</span></td>
-                            <td>
-                              <button class="btn btn-sm btn-outline-primary" title="Ver detalles">
-                                <i class="mdi mdi-eye"></i>
-                              </button>
-                              <button class="btn btn-sm btn-outline-secondary" title="Descargar recibo">
-                                <i class="mdi mdi-download"></i>
-                              </button>
-                            </td>
-                          </tr>
-                          <tr>
-                            <td><strong>#P-005-2026</strong></td>
-                            <td>Renta Espacio - Mayo</td>
-                            <td><span class="font-weight-bold text-dark">$2,500.00</span></td>
-                            <td>05/05/2026</td>
-                            <td><span class="badge badge-success">Efectivo</span></td>
-                            <td><span class="badge badge-completed">Completado</span></td>
-                            <td>
-                              <button class="btn btn-sm btn-outline-primary" title="Ver detalles">
-                                <i class="mdi mdi-eye"></i>
-                              </button>
-                              <button class="btn btn-sm btn-outline-secondary" title="Descargar recibo">
+                          <?php endif; ?>
+                        </tbody>
                                 <i class="mdi mdi-download"></i>
                               </button>
                             </td>
@@ -529,23 +485,5 @@ require_once 'views/includes/NavBarView.php';
     </script>
   </body>
 </html>
-            <div class="tiles success"></div>
-            <div class="tiles warning"></div>
-            <div class="tiles danger"></div>
-            <div class="tiles info"></div>
-            <div class="tiles dark"></div>
-            <div class="tiles default light"></div>
-          </div>
-        </div>
-        <!-- partial -->
-        <!-- partial:partials/_sidebar.html -->
-        
-        <?=SideBarView(); ?>
-
-        <!-- partial -->
-        <div class="main-panel">
-          <div class="content-wrapper">
-            
-          <!-- content-wrapper ends -->
 
           

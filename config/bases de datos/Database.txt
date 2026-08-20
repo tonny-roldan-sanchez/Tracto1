@@ -1,0 +1,87 @@
+-- ==========================================
+-- BASE DE DATOS: servicio_dentista
+-- ==========================================
+
+CREATE DATABASE IF NOT EXISTS servicio_dentista
+CHARACTER SET utf8mb4
+COLLATE utf8mb4_unicode_ci;
+
+USE servicio_dentista;
+
+-- ==========================================
+-- TABLA: dentistas
+-- ==========================================
+CREATE TABLE dentistas (
+    id_dentista INT AUTO_INCREMENT PRIMARY KEY,
+    nombre VARCHAR(100) NOT NULL,
+    especialidad VARCHAR(100),
+    telefono VARCHAR(20),
+    email VARCHAR(100),
+    fecha_registro TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+-- ==========================================
+-- TABLA: pacientes
+-- ==========================================
+CREATE TABLE pacientes (
+    id_paciente INT AUTO_INCREMENT PRIMARY KEY,
+    nombre VARCHAR(100) NOT NULL,
+    telefono VARCHAR(20),
+    email VARCHAR(100),
+    direccion VARCHAR(200),
+    fecha_registro TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+-- ==========================================
+-- TABLA: servicios
+-- ==========================================
+CREATE TABLE servicios (
+    id_servicio INT AUTO_INCREMENT PRIMARY KEY,
+    id_paciente INT NOT NULL,
+    id_dentista INT NOT NULL,
+    tratamiento VARCHAR(100) NOT NULL,
+    costo DECIMAL(10,2) NOT NULL,
+    fecha DATE NOT NULL,
+    observaciones TEXT,
+
+    FOREIGN KEY (id_paciente) REFERENCES pacientes(id_paciente)
+        ON UPDATE CASCADE
+        ON DELETE RESTRICT,
+
+    FOREIGN KEY (id_dentista) REFERENCES dentistas(id_dentista)
+        ON UPDATE CASCADE
+        ON DELETE RESTRICT
+);
+
+-- ==========================================
+-- DATOS DE PRUEBA
+-- ==========================================
+
+INSERT INTO dentistas (nombre, especialidad, telefono, email) VALUES
+('Dr. Carlos Mendoza', 'Ortodoncia', '5512345678', 'carlos@clinica.com'),
+('Dra. Laura Pérez', 'Endodoncia', '5511122233', 'laura@clinica.com'),
+('Dr. Juan Ramírez', 'Cirugía Dental', '5599988877', 'juan@clinica.com');
+
+INSERT INTO pacientes (nombre, telefono, email, direccion) VALUES
+('Ana López', '5551112233', 'ana@gmail.com', 'CDMX'),
+('Pedro Sánchez', '5554445566', 'pedro@gmail.com', 'CDMX'),
+('María Torres', '5557778899', 'maria@gmail.com', 'CDMX');
+
+INSERT INTO servicios (id_paciente, id_dentista, tratamiento, costo, fecha, observaciones) VALUES
+(1,1,'Limpieza Dental',600.00,'2026-04-28','Sin complicaciones'),
+(2,2,'Endodoncia',3500.00,'2026-04-28','Tratamiento de conducto'),
+(3,3,'Extracción',1200.00,'2026-04-28','Muela del juicio');
+
+-- ==========================================
+-- CONSULTA GENERAL
+-- ==========================================
+SELECT 
+s.id_servicio,
+p.nombre AS paciente,
+d.nombre AS dentista,
+s.tratamiento,
+s.costo,
+s.fecha
+FROM servicios s
+INNER JOIN pacientes p ON s.id_paciente = p.id_paciente
+INNER JOIN dentistas d ON s.id_dentista = d.id_dentista;

@@ -1,6 +1,8 @@
 <?php
 // Cargar configuración global primero
 require_once 'functions.php';
+require_once 'models/PanelModel.php';
+require_once 'controllers/PanelController.php';
 
 $menu=$_GET['menu']??'login';
 
@@ -11,6 +13,9 @@ else if ($menu=='registro'){
     include 'views/RegistroLoginView.php';
 }
 else if ($menu=='panel'){
+    $panelModel = new PanelModel();
+    $panelController = new PanelController($panelModel);
+    $panelData = $panelController->getDashboardData();
     include 'views/PanelView.php';
 }
 else if ($menu=='micamion'){
@@ -32,11 +37,27 @@ else if ($menu=='pagos'){
     include 'views/PagosView.php';
 }
 
+else if ($menu=='respaldo'){
+    require_once 'config/database.php';
+    require_once 'controllers/BackupController.php';
+
+    include 'views/BackupView.php';
+}
+
 else if ($menu=='historial'){
-    // Cargar modelo y controlador del historial para habilitar CRUD
     require_once 'config/database.php';
     require_once 'models/Historial.php';
-    require_once 'controllers/Historial.php';
+    require_once 'controllers/HistorialController.php';
+
+    $historialModel = new HistorialModel();
+    $historialController = new HistorialController($historialModel);
+    $historialController->run();
+
+    $historial = $historialController->getHistorial();
+    $message = $historialController->getMessage();
+    $type = $historialController->getType();
+    $registroSeleccionado = $historialController->getRegistroSeleccionado();
+    $ultimoId = $historialController->getUltimoId();
 
     include 'views/Historialview.php';
 }
