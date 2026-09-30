@@ -33,15 +33,6 @@ function SideBarView(){
             </li>
 
             <li class='nav-item'>
-              <a class='nav-link' href='?menu=apartarespacio'>
-                <span class='icon-bg'>
-                  <i class='mdi mdi-map-marker-plus menu-icon'></i>
-                </span>
-                <span class='menu-title'>Apartar Espacio</span>
-              </a>
-            </li>
-
-            <li class='nav-item'>
               <a class='nav-link' href='?menu=pagos'>
                 <span class='icon-bg'>
                   <i class='mdi mdi-cash-multiple menu-icon'></i>

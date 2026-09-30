@@ -155,10 +155,6 @@ require_once 'views/includes/NavBarView.php';
                                             <i class="mdi mdi-content-save"></i>
                                             Guardar Cambios
                                         </button>
-                                        <a href="index.php?menu=apartarespacio" class="btn btn-primary rounded-pill mb-2 px-4 py-2 shadow-sm" style="font-weight:600; letter-spacing:0.2px;">
-                                            <i class="mdi mdi-map-marker mr-2"></i>
-                                            Confirmar Reserva
-                                        </a>
                                     </div>
                                 </form>
                             </div>
@@ -187,14 +183,9 @@ function habilitarEdicion() {
 
                 <div class="footer-inner-wraper">
 
-                    <div class="d-sm-flex justify-content-center justify-content-sm-between">
+                    <div class="d-flex justify-content-start">
 
-                        <span class="text-muted text-center text-sm-left d-block d-sm-inline-block">
-
-                            Copyright © 2026
-                            Tracto Pensión San Leonardo
-
-                        </span>
+                        <span class="text-muted text-left d-block">Copyright © 2025 Tracto Pensión San Leonardo. Todos los derechos reservados.</span>
 
 
                     </div>

@@ -39,14 +39,14 @@
                   <a class="text-white font-weight-medium" href="?menu=login">Regresar a Login</a>
                 </div>
               </div>
-              <div class="row mt-5">
-                <div class="col-12 mt-xl-2">
-                  <p class="text-white font-weight-medium text-center">Copyright &copy; 2020 Todos los derechos reservados</p>
-                </div>
-              </div>
             </div>
           </div>
         </div>
+        <footer class="footer position-fixed fixed-bottom">
+          <div class="footer-inner-wraper">
+            <span class="text-white text-left d-block">Copyright © 2025 Tracto Pensión San Leonardo. Todos los derechos reservados.</span>
+          </div>
+        </footer>
         <!-- content-wrapper ends -->
       </div>
       <!-- page-body-wrapper ends -->

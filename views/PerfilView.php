@@ -2,18 +2,19 @@
 require_once 'views/includes/SideBarView.php';
 require_once 'views/includes/NavBarView.php';
 
-// DATOS DE EJEMPLO
-$usuario = [
-    'nombre'   => 'Jose Miguel',
-    'correo'   => 'jose@gmail.com',
-    'telefono' => '2221234567',
-    'rol'      => 'Administrador',
-    'foto'     => 'public/assets/images/faces/face28.png'
-];
+$usuario = $_SESSION['usuario'] ?? [];
+$usuario['nombre'] = $usuario['nombre'] ?? 'Usuario';
+$usuario['correo'] = $usuario['correo'] ?? $usuario['email'] ?? '';
+$usuario['telefono'] = $usuario['telefono'] ?? 'No registrado';
+$usuario['rol'] = $usuario['rol'] ?? 'Usuario';
+$usuario['foto'] = $usuario['foto'] ?? 'public/assets/images/faces/face28.png';
+$mensajePerfil = $_SESSION['mensaje_perfil'] ?? '';
+$errorPerfil = $_SESSION['error_perfil'] ?? '';
+unset($_SESSION['mensaje_perfil'], $_SESSION['error_perfil']);
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
 
@@ -54,6 +55,13 @@ $usuario = [
 
                     </div>
 
+                    <?php if ($mensajePerfil !== ''): ?>
+                        <div class="alert alert-success"><?= e($mensajePerfil) ?></div>
+                    <?php endif; ?>
+                    <?php if ($errorPerfil !== ''): ?>
+                        <div class="alert alert-danger"><?= e($errorPerfil) ?></div>
+                    <?php endif; ?>
+
                     <!-- Card -->
                     <div class="card shadow-sm border-0">
 
@@ -64,16 +72,16 @@ $usuario = [
                                 <!-- Foto -->
                                 <div class="col-md-4 text-center">
 
-                                    <img src="<?= $usuario['foto'] ?>"
+                                    <img src="<?= e($usuario['foto']) ?>"
                                         class="rounded-circle shadow"
                                         width="180">
 
                                     <h4 class="mt-3">
-                                        <?= $usuario['nombre'] ?>
+                                        <?= e($usuario['nombre']) ?>
                                     </h4>
 
                                     <label class="badge badge-primary p-2">
-                                        <?= $usuario['rol'] ?>
+                                        <?= e($usuario['rol']) ?>
                                     </label>
 
                                 </div>
@@ -81,7 +89,15 @@ $usuario = [
                                 <!-- Información -->
                                 <div class="col-md-8">
 
-                                    <form method="POST">
+                                    <form method="POST" enctype="multipart/form-data">
+                                        <?= csrf_input() ?>
+
+                                        <div class="form-group">
+                                            <label for="foto">Foto de perfil</label>
+                                            <input type="file" class="form-control-file" id="foto" name="foto"
+                                                accept="image/jpeg,image/png,image/gif,image/webp">
+                                            <small class="form-text text-muted">Formatos JPG, PNG, GIF o WEBP. Máximo 5 MB.</small>
+                                        </div>
 
                                         <div class="form-group">
 
@@ -91,7 +107,7 @@ $usuario = [
 
                                             <input type="text"
                                                 class="form-control"
-                                                value="<?= $usuario['nombre'] ?>">
+                                                value="<?= e($usuario['nombre']) ?>">
 
                                         </div>
 
@@ -103,7 +119,7 @@ $usuario = [
 
                                             <input type="email"
                                                 class="form-control"
-                                                value="<?= $usuario['correo'] ?>">
+                                                value="<?= e($usuario['correo']) ?>">
 
                                         </div>
 
@@ -115,7 +131,7 @@ $usuario = [
 
                                             <input type="text"
                                                 class="form-control"
-                                                value="<?= $usuario['telefono'] ?>">
+                                                value="<?= e($usuario['telefono']) ?>">
 
                                         </div>
 
@@ -165,9 +181,22 @@ $usuario = [
 
         </div>
 
+        <footer class="footer">
+            <div class="footer-inner-wraper">
+                <span class="text-muted text-left d-block">Copyright © 2025 Tracto Pensión San Leonardo. Todos los derechos reservados.</span>
+            </div>
+        </footer>
+
     </div>
 
+    <!-- plugins:js -->
     <script src="public/assets/vendors/js/vendor.bundle.base.js"></script>
+    <!-- inject:js -->
+    <script src="public/assets/js/off-canvas.js"></script>
+    <script src="public/assets/js/hoverable-collapse.js"></script>
+    <script src="public/assets/js/misc.js"></script>
+    <script src="public/assets/js/settings.js"></script>
+    <script src="public/assets/js/todolist.js"></script>
 
 </body>
 

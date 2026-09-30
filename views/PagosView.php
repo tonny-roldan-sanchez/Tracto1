@@ -367,6 +367,11 @@ require_once 'views/includes/NavBarView.php';
 
           </div>
           <!-- content-wrapper ends -->
+          <footer class="footer">
+            <div class="footer-inner-wraper">
+              <span class="text-muted text-left d-block">Copyright © 2025 Tracto Pensión San Leonardo. Todos los derechos reservados.</span>
+            </div>
+          </footer>
         </div>
         <!-- main-panel ends -->
       </div>
@@ -457,7 +462,7 @@ require_once 'views/includes/NavBarView.php';
     <script src="public/assets/vendors/chart.js/Chart.min.js"></script>
     <script src="public/assets/vendors/bootstrap-datepicker/bootstrap-datepicker.min.js"></script>
     <script src="public/assets/js/demo_1/dashboard.js"></script>
-    <script src="public/assets/js/demo_1/misc.js"></script>
+    <script src="public/assets/js/misc.js"></script>
 
     <script>
       // Establecer fecha actual como valor por defecto

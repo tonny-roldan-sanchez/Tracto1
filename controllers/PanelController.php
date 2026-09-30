@@ -13,6 +13,7 @@ class PanelController
         return [
             'stats' => $this->model->getStats(),
             'activity' => $this->model->getActivity(),
+            'occupancy' => $this->model->getOccupancy(),
         ];
     }
 }

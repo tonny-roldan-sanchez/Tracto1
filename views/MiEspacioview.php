@@ -274,14 +274,9 @@ require_once 'views/includes/NavBarView.php';
 
                 <div class="footer-inner-wraper">
 
-                    <div class="d-sm-flex justify-content-center justify-content-sm-between">
+                    <div class="d-flex justify-content-start">
 
-                        <span class="text-muted text-center text-sm-left d-block d-sm-inline-block">
-
-                            Copyright © 2026
-                            Tracto Pensión San Leonardo
-
-                        </span>
+                        <span class="text-muted text-left d-block">Copyright © 2025 Tracto Pensión San Leonardo. Todos los derechos reservados.</span>
 
                     </div>
 
@@ -295,7 +290,14 @@ require_once 'views/includes/NavBarView.php';
 
 </div>
 
+<!-- plugins:js -->
 <script src="public/assets/vendors/js/vendor.bundle.base.js"></script>
+<!-- inject:js -->
+<script src="public/assets/js/off-canvas.js"></script>
+<script src="public/assets/js/hoverable-collapse.js"></script>
+<script src="public/assets/js/misc.js"></script>
+<script src="public/assets/js/settings.js"></script>
+<script src="public/assets/js/todolist.js"></script>
 
 </body>
 </html>

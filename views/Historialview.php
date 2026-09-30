@@ -83,12 +83,6 @@ if(!isset($historial) || !is_array($historial)){
                   <div class="card-body">
                     <div class="d-flex justify-content-between align-items-center mb-2">
                       <h4 class="card-title mb-0">Registros de actividad</h4>
-                      <div class="btn-group" role="group" aria-label="Acciones historial">
-                        <button type="button" class="btn btn-primary" id="btn-crear">Crear</button>
-                        <button type="button" class="btn btn-info" id="btn-consultar">Consultar</button>
-                        <button type="button" class="btn btn-warning" id="btn-editar">Editar</button>
-                        <button type="button" class="btn btn-danger" id="btn-eliminar">Eliminar</button>
-                      </div>
                     </div>
                     <div class="table-responsive">
                       <table class="table table-hover">
@@ -130,9 +124,8 @@ if(!isset($historial) || !is_array($historial)){
           <!-- partial:partials/_footer.html -->
           <footer class="footer">
             <div class="footer-inner-wraper">
-              <div class="d-sm-flex justify-content-center justify-content-sm-between">
-                <span class="text-muted text-center text-sm-left d-block d-sm-inline-block">Copyright © 2018 <a href="https://www.bootstrapdash.com/" target="_blank">Bootstrap Dash</a>. All rights reserved.</span>
-                <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center">Hand-crafted & made with <i class="mdi mdi-heart text-danger"></i></span>
+              <div class="d-flex justify-content-start">
+                <span class="text-muted text-left d-block">Copyright © 2025 Tracto Pensión San Leonardo. Todos los derechos reservados.</span>
               </div>
             </div>
           </footer>

@@ -1,6 +1,10 @@
 <?php
 function NavBarView()
 {
+  $usuario = $_SESSION['usuario'] ?? [];
+  $nombreUsuario = e((string) ($usuario['nombre'] ?? 'Usuario'));
+  $fotoUsuario = e((string) ($usuario['foto'] ?? 'public/assets/images/faces/face28.png'));
+
   return "
     <nav class='navbar default-layout-navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row'>
         <div class='text-center navbar-brand-wrapper d-flex align-items-center justify-content-center'>
@@ -31,15 +35,15 @@ function NavBarView()
             <li class='nav-item nav-profile dropdown'>
               <a class='nav-link dropdown-toggle' id='profileDropdown' href='#' data-toggle='dropdown' aria-expanded='false'>
                 <div class='nav-profile-img'>
-                  <img src='public/assets/images/faces/face28.png' alt='image'>
+                  <img src='$fotoUsuario' alt='Foto de perfil'>
                 </div>
                 <div class='nav-profile-text'>
-                  <p class='mb-1 text-black'>Jose Miguel</p>
+                  <p class='mb-1 text-black'>$nombreUsuario</p>
                 </div>
               </a>
               <div class='dropdown-menu navbar-dropdown dropdown-menu-right p-0 border-0 font-size-sm' aria-labelledby='profileDropdown' data-x-placement='bottom-end'>
                 <div class='p-3 text-center bg-primary'>
-                  <img class='img-avatar img-avatar48 img-avatar-thumb' src='public/assets/images/faces/face28.png' alt=''>
+                  <img class='img-avatar img-avatar48 img-avatar-thumb' src='$fotoUsuario' alt='Foto de perfil'>
                 </div>
                 <div class='p-2'>
                   <h5 class='dropdown-header text-uppercase pl-2 text-dark'>Opciones de Usuario</h5>
@@ -68,7 +72,7 @@ function NavBarView()
 
 </a>
                   
-                  <a class='dropdown-item py-1 d-flex align-items-center justify-content-between' href='?menu=login'>
+                  <a class='dropdown-item py-1 d-flex align-items-center justify-content-between' href='?menu=logout'>
                     <span>Cerrrar Sesión</span>
                     <i class='mdi mdi-logout ml-1'></i>
                   </a>

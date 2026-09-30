@@ -31,7 +31,10 @@
                 </div>
                 <h4>Bienvenido a Tracto Pension San Leonardo!</h4>
                 <h6 class="font-weight-light">Acceso al sistema!</h6>
-                <form class="pt-3">
+                <?php if (!empty($errorLogin)): ?>
+                  <div class="alert alert-danger"><?= e($errorLogin) ?></div>
+                <?php endif; ?>
+                <form class="pt-3" method="post" action="index.php?menu=login">
                   <div class="form-group">
                     <label for="exampleInputEmail">Usuario</label>
                     <div class="input-group">
@@ -40,7 +43,7 @@
                           <i class="mdi mdi-account-outline text-primary"></i>
                         </span>
                       </div>
-                      <input type="text" class="form-control form-control-lg border-left-0" id="" placeholder="Nombre del Usuario">
+                      <input type="text" name="identificador" class="form-control form-control-lg border-left-0" placeholder="Nombre o correo del usuario" required>
                     </div>
                   </div>
                   <div class="form-group">
@@ -51,7 +54,7 @@
                           <i class="mdi mdi-lock-outline text-primary"></i>
                         </span>
                       </div>
-                      <input type="password" class="form-control form-control-lg border-left-0" id="exampleInputPassword" placeholder="Ingresa tu contraseña">
+                      <input type="password" name="password" class="form-control form-control-lg border-left-0" id="exampleInputPassword" placeholder="Ingresa tu contraseña" required>
                     </div>
                   </div>
                   <div class="my-2 d-flex justify-content-between align-items-center">
@@ -62,7 +65,7 @@
                     <a href="#" class="auth-link text-black">¿Olvidaste tu contraseña?</a>
                   </div>
                   <div class="my-3">
-                    <a class="btn btn-block btn-primary btn-lg font-weight-medium auth-form-btn" href="?menu=panel">Ingresar</a>
+                    <button type="submit" class="btn btn-block btn-primary btn-lg font-weight-medium auth-form-btn">Ingresar</button>
                   </div>
                   <div class="mb-2 d-flex">
                     
@@ -72,10 +75,13 @@
                 </form>
               </div>
             </div>
-            <div class="col-lg-6 login-half-bg d-flex flex-row">
-              <p class="text-white font-weight-medium text-center flex-grow align-self-end">Copyright &copy; 2026 Tracto Pensión San Leonardo.</p>
-            </div>
+            <div class="col-lg-6 login-half-bg d-flex flex-row"></div>
           </div>
+          <footer class="footer position-fixed fixed-bottom">
+            <div class="footer-inner-wraper">
+              <span class="text-muted text-left d-block">Copyright © 2025 Tracto Pensión San Leonardo. Todos los derechos reservados.</span>
+            </div>
+          </footer>
         </div>
         <!-- content-wrapper ends -->
       </div>

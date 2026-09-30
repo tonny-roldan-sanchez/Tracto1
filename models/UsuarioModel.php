@@ -21,6 +21,30 @@ class Usuario
         return $stmt->execute([trim($nombre), trim($email)]);
     }
 
+    public function registrar(string $nombre, string $email, string $password): int
+    {
+        $this->asegurarColumnaPassword();
+
+        $sql = "INSERT INTO usuarios (nombre, email, password) VALUES (?, ?, ?)";
+        $stmt = $this->db->prepare($sql);
+        $stmt->execute([
+            trim($nombre),
+            trim($email),
+            password_hash($password, PASSWORD_DEFAULT),
+        ]);
+
+        return (int) $this->db->lastInsertId();
+    }
+
+    private function asegurarColumnaPassword(): void
+    {
+        $columnas = $this->db->query("SHOW COLUMNS FROM usuarios LIKE 'password'")->fetch();
+
+        if (!$columnas) {
+            $this->db->exec("ALTER TABLE usuarios ADD COLUMN password VARCHAR(255) NULL AFTER email");
+        }
+    }
+
     public function eliminar(int $id): bool
     {
         $sql = "DELETE FROM usuarios WHERE id = ?";
@@ -34,6 +58,31 @@ class Usuario
         $stmt = $this->db->prepare($sql);
         $stmt->execute([$id]);
         return $stmt->fetch();
+    }
+
+    public function obtenerPorEmail(string $email): array|false
+    {
+        $stmt = $this->db->prepare("SELECT * FROM usuarios WHERE email = ?");
+        $stmt->execute([trim($email)]);
+        return $stmt->fetch();
+    }
+
+    public function obtenerPorNombre(string $nombre): array|false
+    {
+        $stmt = $this->db->prepare("SELECT * FROM usuarios WHERE nombre = ?");
+        $stmt->execute([trim($nombre)]);
+        return $stmt->fetch();
+    }
+
+    public function actualizarFoto(int $id, string $foto): bool
+    {
+        $columna = $this->db->query("SHOW COLUMNS FROM usuarios LIKE 'foto'")->fetch();
+        if (!$columna) {
+            $this->db->exec("ALTER TABLE usuarios ADD COLUMN foto VARCHAR(255) NULL AFTER email");
+        }
+
+        $stmt = $this->db->prepare("UPDATE usuarios SET foto = ? WHERE id = ?");
+        return $stmt->execute([$foto, $id]);
     }
 
     public function actualizar(int $id, string $nombre, string $email): bool
