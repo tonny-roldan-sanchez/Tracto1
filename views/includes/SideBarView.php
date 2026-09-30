@@ -59,6 +59,15 @@ function SideBarView(){
               </a>
             </li>
 
+            <li class='nav-item'>
+              <a class='nav-link' href='?menu=pensionados'>
+                <span class='icon-bg'>
+                  <i class='mdi mdi-account-group menu-icon'></i>
+                </span>
+                <span class='menu-title'>Pensionados</span>
+              </a>
+            </li>
+
             <li class='nav-item sidebar-user-actions'>
               <div class='sidebar-user-menu'>
                 <a href='#' class='nav-link'><i class='mdi mdi-settings menu-icon'></i>

@@ -195,6 +195,10 @@ else if ($menu=='accesos'){
     include 'views/Accesosview.php';
 }
 
+else if ($menu=='pensionados'){
+    include 'views/Pensionados.php';
+}
+
 else if ($menu == 'perfil') {
     if (!isset($_SESSION['usuario_id'])) {
         redirect('index.php?menu=login');
