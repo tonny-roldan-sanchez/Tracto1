@@ -199,6 +199,42 @@ else if ($menu=='pensionados'){
     include 'views/Pensionados.php';
 }
 
+else if ($menu=='linea'){
+    require_once 'models/LineaModel.php';
+    require_once 'controllers/LineaController.php';
+
+    $lineaModel = new LineaModel((new Database())->getConnection());
+    $lineaController = new LineaController($lineaModel);
+    $mensajeLinea = null;
+    $mensajeBusquedaLinea = null;
+
+    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+        verify_csrf_token();
+        $mensajeLinea = $lineaController->procesar(
+            (string) ($_POST['accion'] ?? ''),
+            $_POST
+        );
+    }
+
+    $busquedaLinea = trim((string) ($_GET['buscar'] ?? ''));
+    $lineas = $lineaModel->listar($busquedaLinea);
+    if ($busquedaLinea !== '' && !$lineas) {
+        $mensajeBusquedaLinea = [
+            'tipo' => 'danger',
+            'mensaje' => 'La linea esta mal escrita o no esta registrada. Escribe el nombre completo.',
+        ];
+    }
+    $lineaSeleccionadaId = (int) ($_GET['id_linea'] ?? $_POST['id_linea'] ?? 0);
+    $lineaSeleccionada = $lineaSeleccionadaId > 0
+        ? $lineaModel->obtener($lineaSeleccionadaId)
+        : null;
+    $camionesPensionados = $lineaSeleccionada
+        ? $lineaModel->listarCamionesPensionados($lineaSeleccionadaId)
+        : [];
+
+    include 'views/Linea.php';
+}
+
 else if ($menu == 'perfil') {
     if (!isset($_SESSION['usuario_id'])) {
         redirect('index.php?menu=login');
